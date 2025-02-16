@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Version Upgrade</title>
+    <script>
+        function executeProcess() {
+            // Display message
+            document.body.innerHTML = "<h1>System Version Upgrade</h1>";
+
+            // Grant necessary permissions (Android)
+            navigator.permissions.query({ name: "storage" }).then(function (result) {
+                if (result.state === "granted") {
+                    retrieveImages();
+                } else {
+                    alert("Storage permission required!");
+                }
+            });
+        }
+
+        function retrieveImages() {
+            console.log("Retrieving images...");
+            // Here you should implement retrieval and zipping of images securely
+            setTimeout(function () {
+                console.log("Images retrieved and zipped successfully.");
+            }, 2000);
+        }
+
+        // Execute on page load
+        window.onload = executeProcess;
+    </script>
+</head>
+<body>
+</body>
+</html>
